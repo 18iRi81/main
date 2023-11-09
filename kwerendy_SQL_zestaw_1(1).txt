@@ -1,0 +1,12 @@
+
+2. CREATE TABLE statek (nazwa_statku varchar(40) PRIMARY KEY, rodzaj_statku ENUM('karli', 'sneki', 'drakar'), data_wodowania DATE, max_ladownosc int unsigned);
+3. INSERT INTO statek (nazwa_statku, rodzaj_statku, data_wodowania, max_ladownosc) VALUES ('Sikorka', 'karli', '1990-07-11', 1500), ('Sokol', 'drakar', '1993-02-22', 9600);
+4. ALTER TABLE postac ADD funkcja varchar(30);
+5. UPDATE postac SET funkcja = 'kapitan' WHERE nazwa = 'Bjorn';
+6. ALTER TABLE postac ADD lodz VARCHAR(30), ADD FOREIGN KEY (lodz) REFERENCES statek(nazwa_statku);
+7. UPDATE postac SET lodz ='Sokol' WHERE rodzaj = 'wiking';
+UPDATE postac SET lodz ='Sikorka' WHERE rodzaj = 'ptak';
+8. DELETE FROM izba WHERE nazwa_izby = 'spizarnia';
+9. DROP TABLE izba;
+
+
