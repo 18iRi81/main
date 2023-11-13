@@ -1,0 +1,197 @@
+\chapter{Wykorzystanie klasy \texttt{uwmthesis}}
+\section{Preambuła}
+
+Typowa preambuła wygląda następująco:
+\begin{verbatim}
+\documentclass[wmii,inf,mgr]{uwmthesis}
+
+\date{2015}
+\title{Wykorzystanie Klasy Dokumentu 
+  do Pisania Prac Dyplomowych}
+\author{Aleksander Denisiuk}
+\etitle{Using of the Document Class for Theses}
+\wykonanaw{katedrze Multimediów i Grafiki Komputerowej}
+\ewykonanaw{the Department of Multimedia and Computer Graphics}
+\podkierunkiem{prof. zw. dr hab. Wiesławy Promotorskiej-Profesorskiej}
+\epodkierunkiem{prof. zw. dr hab. Wiesława Promotorska-Profesorska}
+\end{verbatim}
+
+Klasa dokumentu \texttt{uwmthesis} przyjmuje następujące opcje:
+\begin{enumerate}
+ \item Nazwa wydziału. W tej chwili wspierany jest tylko jeden wydział, \texttt{wmii}, Wydział Matematyki i~Informatyki. Sposoby wykorzystania klasy dla innych wydziałów opisane są w~rozdziale~\ref{inne}.
+ \item Kierunek studiów:
+ \begin{description}
+  \item [\texttt{inf}]--- informatyka,
+  \item [\texttt{mat}]--- matematyka,
+  \item [\texttt{fiz}]--- fizyka techniczna.
+ \end{description}
+\item Rodzaj pracy (poziom studiów):
+ \begin{description}
+  \item [\texttt{mgr}]--- magisterska,
+  \item [\texttt{inz}]--- inżynierska,
+  \item [\texttt{lic}]--- licencjacka.
+ \end{description}
+\item \texttt{twoside}~--- do wydruku dwustronnego.
+\end{enumerate}
+
+\smallbreak
+W następujących obowiązkowych makrach określa się
+\begin{itemize}
+ \item Rok złożenia pracy~--- \verb|\date{}|
+ \item Tytuł pracy~--- \verb|\title{}|
+ \item Tytuł pracy w~języku angielskim~--- \verb|\etitle{}|
+ \item Imię i nazwisko autora pracy~--- \verb|\author{}|
+ \item Nazwa jednostki, w~której praca została wykonana (w~miejscowniku)~--- \verb|\wykonanaw{}|
+ \item Nazwa jednostki, w~której praca została wykonana w języku angielskim~--- \verb|\ewykonanaw{}|
+ \item Tytuł, stopień naukowy a~także imię i~nazwisko promotora pracy (w~dopełniaczu)~--- \verb|\podkierunkiem{}|
+ \item Tytuł, stopień naukowy a~także imię i~nazwisko promotora pracy w~języku angielskim~--- \verb|\epodkierunkiem{}| Zwróćmy uwagę, że w~pracy~\cite{Maslowski} zaleca się nie tłumaczyć tytułów i~stopni naukowych.
+\end{itemize}
+
+
+
+\section{Właściwy dokument}
+Właściwy dokument pisze się zgodnie z~ogólnymi zasadami pisania prac w~\LaTeX u. Największą jednostką podziału logicznego tekstu jest \verb|\chapter|.
+
+\section{Spis treści}
+Spis treści umieszczamy tuż po stronie tytułowej. W taki sposób, początek dokumentu wygląda następująco:
+\begin{verbatim}
+\begin{document}
+\maketitle
+\tableofcontents
+\end{verbatim}
+
+
+\section{Wstęp}
+Każda praca zaczyna się od wstępu. Zazwyczaj rozdziału ,,Wstęp'' się nie numeruje. Odpowiedni kod jest następujący:
+\begin{verbatim}
+\chapter*{Wstęp}
+\end{verbatim}
+
+\section{Bibliografia}
+Zgodnie z~zaleceniami książki~\cite{Osuchowska}, bibliografię umieszczamy po tekście pracy. 
+
+W wymogach~\cite{UWM} nie mówi się o formatowaniu bibliografii. Więc można wprowadzić bibliografię w~zwykły sposób. Na przykład,
+\begin{verbatim}
+\thebibliography{1}
+\bibitem{Oetker}
+  Tobias Oetiker et al., \textit{Nie za krótkie wprowadzenie
+  do systemu \LaTeXe} 2007. 
+  \url{http://www.ctan.org/tex-archive/info/lshort/polish/}
+\bibitem{Osuchowska}
+  Barbara Osuchowska, \textit{Poradnik redaktora i autora.
+  Nauki ścisłe i~technika,} Wydawnictwo PTWK, Warszawa 1988.
+\bibitem{UWM}
+  Uniwersytet Warmińsko-Mazurski. Wydział Matematyki
+  i~Informatyki, \textit{Wytyczne dotyczące pracy dyplomowej,} 2009. 
+\bibitem{Wolinski}
+  Marcin Woliński, \textit{Moje własne klasy dokumentów dla \LaTeXe.
+  Podręcznik użytkownika,} 2009. \url{http://marcinwolinski.pl/mwcls.html}
+\end{verbatim}
+
+Jeżeli chcemy zgrupować literaturę według roczników, używamy polecenia \verb|\bibsep{}|. Powyższy przykład będzie wyglądał w taki sposób:
+\begin{verbatim}
+\thebibliography{1}
+\bibsep{1988}
+\bibitem{Osuchowska}
+  Barbara Osuchowska, \textit{Poradnik redaktora i autora.
+  Nauki ścisłe i~technika,} Wydawnictwo PTWK, Warszawa.
+\bibsep{2007}
+\bibitem{Oetker}
+  Tobias Oetiker et al., \textit{Nie za krótkie wprowadzenie
+  do systemu \LaTeXe}
+  \url{http://www.ctan.org/tex-archive/info/lshort/polish/}
+\bibsep{2009}
+\bibitem{UWM}
+  Uniwersytet Warmińsko-Mazurski. Wydział Matematyki
+  i~Informatyki, \textit{Wytyczne dotyczące pracy dyplomowej.}
+\bibitem{Wolinski}
+  Marcin Woliński, \textit{Moje własne klasy dokumentów dla \LaTeXe.
+  Podręcznik użytkownika,} \url{http://marcinwolinski.pl/mwcls.html}
+\end{verbatim}
+W tym przypadku w~każdej pozycji nie podajemy roku.
+
+
+Należy zwrócić uwagę, że źródła internetowe także powinny mieć autora, nazwę i~datę wydania. Adresy internetowe wygodnie jest wprowadzać za pomocą polecenia \verb|\url{}| z~pakietu~\texttt{url}. Konieczne jest także wskazanie protokołu (\texttt{ftp://}, \texttt{http://}, \texttt{https://}, etc).
+
+Wikipedia jest źródłem wtórnym. Należy unikać odwoływania się do Wikipedii na rzecz źródeł pierwotnych. Przykładowo, zamiast
+\begin{verbatim}
+\bibitem{css}
+  Wikipedia, \tetxit{Kaskadowe arkusze stylów},
+  \url{http://pl.wikipedia.org/wiki/Kaskadowe_arkusze_styl%C3%B3w}
+\end{verbatim}
+należy użyć
+\begin{verbatim}
+\bibitem{css}
+  W3C, \tetxit{Cascading Style Sheets, level 1}, 2008,
+  \url{http://www.w3.org/TR/REC-CSS1/}
+\end{verbatim}
+
+\section{Podziękowania}
+Rozdział',,Podziękowania'' jest opcjonalny. 
+W~razie potrzeby umieszczamy go w~nienumerowanym rozdziale (\verb|\chapter*|) po bibliografii. Na naszym wydziale wszyscy dyplomanci są wdzięczni swoim promotorom za \emph{nieocenioną opiekę merytoryczną i~wskazówki, bez których\dots} Dlatego w~rozdziale ,,Podziękowania'' zazwyczaj nie wymienia się promotora.
+
+\section{Spisy rysunków, tabel, etc}
+Spisy rysunków, tabel, przyjętych oznaczeń, etc umieszczamy po rozdziale ,,Podziękowania'' (po bibliografii).
+
+\section{Streszczenia}
+Praca powinna zawierać streszczenia w~dwóch językach: polskim i~angielskim.  Należy je umieścić po spisach rysunków, tabel, etc. Dla streszczeń zostały określone dwa środowiska: \texttt{streszczenie}~--- dla streszczenia w~języku polskim oraz \texttt{abstract}~--- dla streszczenia w~języku angielskim.
+
+Przykład streszczeń:
+\begin{verbatim}
+\begin{streszczenie}
+Celem pracy jest opisanie klasy dokumentów \texttt{uwmthesis},
+która pozwala na automatyczne generowanie prac dyplomowych,
+zgodnych z~wymogami, przyjętymi na Wydziale Matematyki
+i~Informatyki UWM w Olsztynie.
+\end{streszczenie}
+
+\begin{abstract}
+The purpose of this document is to present the \texttt{uwmthesis}
+\LaTeX\ document class. This document class can be used for generation
+of theses on the Faculty of Mathematics and Computer Science of
+the UWM in Olsztyn.
+\end{abstract}
+\end{verbatim}
+
+
+\section{Załączniki}
+Załączniki (o ile są) umieszczamy na samym końcu dokumentu.
+
+\section{Ogólne wskazówki}
+\subsection{Modularyzacja}
+Przy napisaniu pracy szczególnie zaleca się umieszczenie każdego rozdziału w~oddzielnym pliku. Plik główny (bez preambuły), w~taki sposób, wyglądał by następująco:
+\begin{verbatim}
+\begin{document}
+  \maketitle
+  \tableofcontents
+  \input{wstep.tex}
+  \input{section1.tex}
+  \input{section2.tex}
+  \input{section3.tex}
+  \input{streszczenie.tex}
+  \input{absract.tex}
+  \input{bibliography.tex}
+\end{document}
+\end{verbatim}
+
+Pliki, zawierające poszczególne składowe pracy kończymy poleceniem~\verb|\endinput|.
+
+
+W powyższym przykładzie można także przy napisaniu drugiego rozdziału wykomentować pozostałe części.
+
+\subsection{Wykorzystanie klasy na innych wydziałach}\label{inne}
+Najlepszym rozwiązaniem jest napisanie do mnie maila z~prośbą o~dodanie wydziału oraz (lub) kierunku studiów. 
+
+Innym sposobem jest dodanie do preambuły kodu:
+\begin{verbatim}
+\makeatletter
+\renewcommand{\wydzi@l}{Wydział Bioinżynierii Zwierząt}
+\renewcommand{\kierun@k}{Zootechnika}
+\renewcommand{\ewydzi@l}{Faculty of Animal Bioengineering}
+\renewcommand{\ekierun@k}{Zootechny}
+\makeatother
+\end{verbatim}
+Zaletą pierwszego sposobu jest, oczywiście, to, że nowa wersja klasy dokumentów zostanie dostępna dla wszystkich.
+
+Dobrym pomysłem jest także zrobić \emph{pull request} na
+  \url{https://bitbucket.org/adenisiuk/uwmthesis/}

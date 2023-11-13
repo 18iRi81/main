@@ -1,0 +1,56 @@
+%%%% Opcje
+%% wmii --- Wydział Matematyki i informatyki
+%%
+%% Kierunek:
+%%      mat --- Matematyka
+%%      inf --- Informatyka
+%%      fiz Fizyka techniczna
+%%
+%% Poziom studiów (praca):
+%%      mgr --- magisterska
+%%      lic --- licencjacka
+%%      inz --- inżynierska
+
+
+
+
+\documentclass[wmii, inf, mgr]{uwmthesis}
+
+\newcommand{\version}{0.04}
+
+\usepackage[utf8]{inputenc}
+\usepackage[MeX]{polski}
+\usepackage{url}
+\usepackage{biblatex}
+\addbibresource{myliteratur.bib}
+
+
+
+\date{2023}
+\title{Wykorzystanie Klasy Dokumentu \texttt{uwmthesis} do Pisania Prac Dyplomowych. Wersja~\version}
+\author{Imie i Nazwisko}
+\etitle{Using the \texttt{uwmthesis} Document Class for Theses. Version~\version}
+\wykonanaw{katedrze Multimediów i Grafiki Komputerowej}
+\ewykonanaw{the Department of Multimedia and Computer Graphics}
+
+\podkierunkiem{prof. zw. dr hab. Wiesławy Promotorskiej-Profesorskiej}
+\epodkierunkiem{prof. zw. dr hab. Wiesława Promotorska-Profesorska}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+
+\input{wstęp.tex}
+\input{wykorzystywanie.tex}
+\input{podsumowanie.tex}
+\input{historia.tex}
+\input{podziękowanie.tex}
+\input{streszczenie}
+\printbibliography
+
+
+
+\end{document}

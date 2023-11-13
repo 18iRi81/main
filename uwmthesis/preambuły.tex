@@ -1,0 +1,49 @@
+\section{Preambuła}
+
+Typowa preambuła wygląda następująco:
+\begin{verbatim}
+\documentclass[wmii,inf,mgr]{uwmthesis}
+
+\date{2015}
+\title{Wykorzystanie Klasy Dokumentu 
+  do Pisania Prac Dyplomowych}
+\author{Aleksander Denisiuk}
+\etitle{Using of the Document Class for Theses}
+\wykonanaw{katedrze Multimediów i Grafiki Komputerowej}
+\ewykonanaw{the Department of Multimedia and Computer Graphics}
+\podkierunkiem{prof. zw. dr hab. Wiesławy Promotorskiej-Profesorskiej}
+\epodkierunkiem{prof. zw. dr hab. Wiesława Promotorska-Profesorska}
+\end{verbatim}
+
+Klasa dokumentu \texttt{uwmthesis} przyjmuje następujące opcje:
+\begin{enumerate}
+ \item Nazwa wydziału. W tej chwili wspierany jest tylko jeden wydział, \texttt{wmii}, Wydział Matematyki i~Informatyki. Sposoby wykorzystania klasy dla innych wydziałów opisane są w~rozdziale~\ref{inne}.
+ \item Kierunek studiów:
+ \begin{description}
+  \item [\texttt{inf}]--- informatyka,
+  \item [\texttt{mat}]--- matematyka,
+  \item [\texttt{fiz}]--- fizyka techniczna.
+ \end{description}
+\item Rodzaj pracy (poziom studiów):
+ \begin{description}
+  \item [\texttt{mgr}]--- magisterska,
+  \item [\texttt{inz}]--- inżynierska,
+  \item [\texttt{lic}]--- licencjacka.
+ \end{description}
+\item \texttt{twoside}~--- do wydruku dwustronnego.
+\end{enumerate}
+
+\smallbreak
+W następujących obowiązkowych makrach określa się
+\begin{itemize}
+ \item Rok złożenia pracy~--- \verb|\date{}|
+ \item Tytuł pracy~--- \verb|\title{}|
+ \item Tytuł pracy w~języku angielskim~--- \verb|\etitle{}|
+ \item Imię i nazwisko autora pracy~--- \verb|\author{}|
+ \item Nazwa jednostki, w~której praca została wykonana (w~miejscowniku)~--- \verb|\wykonanaw{}|
+ \item Nazwa jednostki, w~której praca została wykonana w języku angielskim~--- \verb|\ewykonanaw{}|
+ \item Tytuł, stopień naukowy a~także imię i~nazwisko promotora pracy (w~dopełniaczu)~--- \verb|\podkierunkiem{}|
+ \item Tytuł, stopień naukowy a~także imię i~nazwisko promotora pracy w~języku angielskim~--- \verb|\epodkierunkiem{}| Zwróćmy uwagę, że w~pracy~\cite{Maslowski} zaleca się nie tłumaczyć tytułów i~stopni naukowych.
+\end{itemize}
+
+
