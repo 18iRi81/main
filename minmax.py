@@ -1,15 +1,19 @@
-lista = [1 ,0, -5, 6, -18, 22, -88]
+lista = [12, 3, 43,66, 77, 44, ]
 def min(lista):
     a = lista[0]
     for i in lista:
-        a = i
-        return a
-        
-"""
+        if i < a:
+            a = i
+    return a
+
+print(min(lista))
+
+print('___')
+
 def max(lista):
-a = lista[0]
-for i in lsita:
-if i > a:
-a = i
-return a
-"""
+    a = lista[0]
+    for i in lista:
+        if i > a:
+            a = i
+    return a
+print(max(lista))
